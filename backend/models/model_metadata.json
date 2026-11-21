@@ -1,0 +1,90 @@
+{
+  "model_name": "NeuroLearn Random Forest Frustration Classifier",
+  "algorithm": "RandomForestClassifier",
+  "version": "1.0.0",
+  "random_state": 42,
+  "n_estimators": 100,
+  "class_weight": "balanced",
+  "training_samples": 4000,
+  "test_samples": 1000,
+  "total_samples": 5000,
+  "student_profiles": 500,
+  "input_features": [
+    "time_spent_on_task",
+    "engagement_level",
+    "accuracy_of_responses"
+  ],
+  "feature_ranges": {
+    "time_spent_on_task": {
+      "min": 10.0,
+      "max": 180.0,
+      "unit": "seconds"
+    },
+    "engagement_level": {
+      "min": 0.1,
+      "max": 1.0,
+      "unit": "normalized [0-1]"
+    },
+    "accuracy_of_responses": {
+      "min": 0.0,
+      "max": 1.0,
+      "unit": "proportion [0-1]"
+    }
+  },
+  "target_classes": [
+    "High",
+    "Low",
+    "Medium"
+  ],
+  "metrics": {
+    "accuracy": 0.952,
+    "precision_macro": 0.9534,
+    "recall_macro": 0.9512,
+    "f1_macro": 0.952,
+    "per_class": {
+      "High": {
+        "precision": 0.966,
+        "recall": 0.9342,
+        "f1_score": 0.9498
+      },
+      "Low": {
+        "precision": 0.9706,
+        "recall": 0.9538,
+        "f1_score": 0.9621
+      },
+      "Medium": {
+        "precision": 0.9235,
+        "recall": 0.9657,
+        "f1_score": 0.9441
+      }
+    },
+    "confusion_matrix": [
+      [
+        284,
+        3,
+        17
+      ],
+      [
+        5,
+        330,
+        11
+      ],
+      [
+        5,
+        7,
+        338
+      ]
+    ]
+  },
+  "feature_importances": {
+    "time_spent_on_task": 0.3763,
+    "engagement_level": 0.2576,
+    "accuracy_of_responses": 0.366
+  },
+  "interventions_map": {
+    "Low": "Continue the current lesson. Offer optional challenges. Encourage independent learning.",
+    "Medium": "Offer a simpler explanation. Provide another example. Offer a conceptual hint.",
+    "High": "Divide the activity into smaller tasks. Offer guided reasoning. Provide a similar example. Suggest an optional short break."
+  },
+  "disclaimer": "This ML model provides experimental learning-support estimates. It does NOT diagnose ADHD or any clinical or psychological conditions."
+}

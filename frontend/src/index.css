@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --border-subtle: #E2E8F0;
+    --accent-indigo: #6366F1;
+    --accent-purple: #8B5CF6;
+    --accent-teal: #14B8A6;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  /* High Contrast Mode */
+  body.high-contrast {
+    --bg-primary: #000000;
+    --bg-surface: #111111;
+    --bg-card: #1E1E1E;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E2E8F0;
+    --text-muted: #CBD5E1;
+    --border-subtle: #FFFFFF;
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+  }
+
+  body.high-contrast * {
+    border-color: #CBD5E1 !important;
+  }
+
+  /* Dark Theme */
+  body.dark-theme {
+    --bg-primary: #0B0F19;
+    --bg-surface: #111827;
+    --bg-card: #1F2937;
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --border-subtle: #334155;
+    background-color: #0B0F19;
+    color: #F8FAFC;
+  }
+
+  /* Font size controls */
+  body.font-sm { font-size: 14px; }
+  body.font-md { font-size: 16px; }
+  body.font-lg { font-size: 18px; }
+  body.font-xl { font-size: 20px; }
+
+  /* Reduced Motion */
+  body.reduced-motion *,
+  body.reduced-motion *::before,
+  body.reduced-motion *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ADHD Friendly Calm Design Tokens */
+.neuro-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.neuro-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -4px rgba(99, 102, 241, 0.1);
+  border-color: #C7D2FE;
+}
+
+/* Think First progressive step card styles */
+.scaffold-card {
+  border-left-width: 4px;
+}
+.scaffold-card.stage-think {
+  border-left-color: #6366F1;
+}
+.scaffold-card.stage-nudge {
+  border-left-color: #38BDF8;
+}
+.scaffold-card.stage-reminder {
+  border-left-color: #34D399;
+}
+.scaffold-card.stage-guided {
+  border-left-color: #F59E0B;
+}
+.scaffold-card.stage-example {
+  border-left-color: #EC4899;
+}
+.scaffold-card.stage-solution {
+  border-left-color: #8B5CF6;
+}
+
+/* Accessible focus rings */
+:focus-visible {
+  outline: 3px solid #6366F1;
+  outline-offset: 2px;
+}
+
+/* Distraction free mode indicator */
+.distraction-free-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
