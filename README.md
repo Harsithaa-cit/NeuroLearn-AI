@@ -356,3 +356,46 @@ This produces an optimized, self-contained `dist/` directory with relative asset
 - [x] **Student Dashboard & Learning Analytics** with interactive Recharts visualizations.
 - [x] **ADHD-friendly accessibility features** (light/dark mode, high contrast, font scaling, reduced motion, distraction-free mode, and native Web Audio ambient sounds).
 - [x] **Production-ready static bundle** generated in `frontend/dist/` ready for Amazon S3 Static Website Hosting.
+
+      
+## AWS CI/CD Deployment
+
+### Project Deployment
+NeuroLearn AI uses GitHub Actions to automate frontend deployment to Amazon S3.
+
+### Technologies Used
+- GitHub Actions
+- AWS S3
+- AWS IAM
+- React
+- Vite
+- Node.js
+
+### Deployment Workflow
+
+1. Developer pushes code to the main branch.
+2. GitHub Actions automatically triggers the workflow.
+3. Repository code is checked out.
+4. Node.js dependencies are installed.
+5. React frontend is built using Vite.
+6. AWS credentials are securely loaded from GitHub Secrets.
+7. Production build files are synchronized with Amazon S3.
+
+### AWS Configuration
+- S3 Bucket: neurolearn-ai-frontend-2026
+- AWS Region: ap-southeast-2
+- Build Directory: frontend/dist
+
+### GitHub Secrets
+The following repository secrets are configured:
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+
+Sensitive credentials are never stored directly in the source code.
+
+### Deployment Trigger
+Deployment runs automatically whenever new changes are pushed to the main branch.
+
+### Outcome
+The deployment pipeline automates the frontend build and deployment process, reducing manual effort and improving deployment consistency.
+
